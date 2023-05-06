@@ -15,8 +15,8 @@ import (
 func MySuperFunc() error {
   if err := AnotherFunc(); err != nil {
     return &fullerror.CustomError{
-      statusCode: 400,
-      err:        fmt.Errorf("[Custom error]: %w", err),
+      StatusCode: 400,
+      Err:        fmt.Errorf("[Custom error]: %w", err),
     }
   }
 }
@@ -26,7 +26,7 @@ func OtherSuperFunc() {
     var customErr *fullerror.CustomError
 
     if errors.As(err, &customErr) {
-      fmt.Sprintf("Error status code: %d", customErr.StatusCode())
+      fmt.Sprintf("Error status code: %d", customErr.GetStatusCode())
       fmt.Sprintf("Error description: %s", customErr.Error())
     }
   }

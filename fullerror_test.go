@@ -12,8 +12,8 @@ func Test_Error(t *testing.T) {
 		errorText := "test"
 
 		err := &CustomError{
-			statusCode: 400,
-			err: errors.New(errorText),
+			StatusCode: 400,
+			Err: errors.New(errorText),
 		}
 
 		assert.Equal(t, errorText, err.Error())
@@ -25,10 +25,10 @@ func Test_StatusCode(t *testing.T) {
 		errorCode := 400
 
 		err := &CustomError{
-			statusCode: errorCode,
-			err: errors.New("test"),
+			StatusCode: errorCode,
+			Err: errors.New("test"),
 		}
 
-		assert.Equal(t, errorCode, err.StatusCode())		
+		assert.Equal(t, errorCode, err.GetStatusCode())		
 	})
 }

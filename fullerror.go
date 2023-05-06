@@ -1,14 +1,14 @@
 package fullerror
 
 type CustomError struct {
-	statusCode int
-	err error
+	StatusCode int
+	Err error
 }
 
 func (e *CustomError) Error() string {
-	return e.err.Error()
+	return e.Err.Error()
 }
 
-func (e *CustomError) StatusCode() int {
-	return e.statusCode
+func (e *CustomError) GetStatusCode() int {
+	return e.StatusCode
 }
